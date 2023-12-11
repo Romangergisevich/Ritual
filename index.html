@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link href="../index/assets/css/main_styles.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main_header">
+        <div class="user_panel">
+            <span class="header_logo">
+                <img src="../index/assets/images/main_logo.png" alt="#">
+            </span>
+            <ul class="head_navigation">
+                <li class="nav_companies"><a href="">Компании и агенты</a></li>
+                <li class="nav_monuments"><a href="">Памятники</a></li>
+                <li class="nav_manufacturers"><a href="">Производители</a></li>
+                <li class="nav_transport"><a href="">Катафальный транспорт</a></li>
+                <li class="nav_transport"><a href="">Каталог</a></li>
+            </ul>
+        </div>
+        <div class="user_settings">
+            <div class="header_drops_block">
+                <div class="wrapper_currency" id="wrapper_currency">
+                    <p class="click-text_currency">
+                        <span class="currency_curent" id="currency_curent"><span class="current_flag"></span>RUB</span>
+                        <span style="bottom: 16px; left: 40px" class="arrow"></span>
+                    </p>
+                    <ul>
+                        <li><span class="KZT"></span><a href="">KZT</a></li>
+                        <li><span class="BYN"></span><a href="">BYN</a></li>
+                        <li><span class="RUB"></span><a href="">RUB</a></li>
+                    </ul>
+                </div>
+                <div class="wrapper_country" id="wrapper_country">
+                    <p style="padding: 0;" class="click-text">
+                        <span id="country_flag"></span>
+                        <span style="left: 14px;" class="arrow"></span>
+                    </p>
+                    <ul>
+                        <li><span class="KZ_flag"></span><a href="">Казахстан</a></li>
+                        <li><span class="BLR_flag"></span><a href="">Беларусь</a></li>
+                        <li><span class="RUS_flag"></span><a href="">Россия</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="login_buttons_block">
+                <button id="register" type="button" class="btn btn-dark">Зарегистроваться</button>
+                <button id="sighn_in" type="button" class="btn btn-light">Войти</button>
+            </div>
+        </div>
+    </div>
+    <div id="collapsed_navbar" class="collapsed_navbar">
+        <div id="collapsed_catalog_container" class="collapsed_catalog_container">
+            <ul id="collapsed_navbar_menu" class="head_navigation_collapsed">
+                <li class="nav_companies"><a href="">Компании и агенты</a></li>
+                <li class="nav_monuments"><a href="">Памятники</a></li>
+                <li class="nav_manufacturers"><a href="">Производители</a></li>
+                <li class="nav_transport"><a href="">Катафальный транспорт</a></li>
+                <li class="nav_transport"><a href="">Каталог</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="burger_panel">
+        <div class="burgerbutton">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div id="preloader" class="preloader_block">
+        <div class="loader loader1">
+            <span></span>
+        </div>
+    </div>
+    <div id="main_body" style="display: none;" class="main_body">
+        <div class="dashnoard_panel">
+            <div class="dashboard_title">
+                Производство и реализация&nbsp;
+                <span>качественных</span>
+                &nbsp;ритуальных услуг оптом и в розницу
+            </div>
+            <a href="#" class="catalog_btn">
+                Перейти в каталог ➜
+            </a>
+            <div class="form_container">
+                <form action="#" method="POST" class="dashboard_filter_block">
+                    <input type="hidden" value="" id="city">
+                    <input type="hidden" value="" id="service">
+                    <div class="city_filter">
+                        <span class="fa_location"></span>
+                        <div class="location_select_block">
+                            <span class="location_filter_title">Город</span>
+                            <div id="city_filter" class="filter_dropdown">
+                                <div class="filter_select">
+                                    <span class="selected">Санкт-Петербург</span>
+                                    <div class="caret"></div>
+                                </div>
+                                <ul class="menu">
+                                    <li>Пермь</li>
+                                    <li>Новгород</li>
+                                    <li>Луганск</li>
+                                    <li>Новосибирск</li>
+                                    <li>Москва</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service_filter">
+                        <span class="fa_service"></span>
+                        <div class="service_select_block">
+                            <span class="service_filter_title">Услуга</span>
+                            <div id="service_filter" class="filter_dropdown">
+                                <div class="filter_select">
+                                    <span class="selected">Похороны</span>
+                                    <div class="caret"></div>
+                                </div>
+                                <ul class="menu">
+                                    <li>Похороны</li>
+                                    <li>Транспортировка</li>
+                                    <li>Морг</li>
+                                    <li>Изготовление гроба</li>
+                                    <li>Изготовление венков</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="date_filter">
+                        <span class="fa_date"></span>
+                        <div class="date_select_block">
+                            <span class="date_filter_title">Дата</span>
+                            <input class="date_filter_input" type="text" name="dateRange" value="" />
+                        </div>
+                    </div>
+                    <button class="filter_submit_btn" type="submit">Найти</button>
+                </form>
+            </div>
+        </div>
+        <div class="secondary_navbar">
+            <a href="#">Спецпредложения ➜</a>
+            <a href="#">Полная информация ➜</a>
+            <a href="#">Статьи ➜</a>
+            <a href="#">Прочее ➜</a>
+        </div>
+        <div class="cities_title">
+            <h2>Список городов</h2>
+        </div>
+        <div class="cities_carousel">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="carousel_City_item">
+                            <a class="moscow_slide" href="">
+                                <span class="sity_slider_footer">Москва<i class="city_slide_arrowRight"></i></span>
+                            </a>
+                            <a class="SPB_slide" href="">
+                                <span class="sity_slider_footer">Санкт-Петербург<i
+                                        class="city_slide_arrowRight"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel_City_item">
+                            <a class="moscow_slide" href="#">
+                                <span class="sity_slider_footer">Москва<i class="city_slide_arrowRight"></i></span>
+                            </a>
+                            <a class="SPB_slide" href="#">
+                                <span class="sity_slider_footer">Санкт-Петербург<i
+                                        class="city_slide_arrowRight"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel_City_item">
+                            <a class="moscow_slide" href="">
+                                <span class="sity_slider_footer">Москва<i class="city_slide_arrowRight"></i></span>
+                            </a>
+                            <a class="SPB_slide" href="">
+                                <span class="sity_slider_footer">Санкт-Петербург<i
+                                        class="city_slide_arrowRight"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev city_slider_prev" href="#carouselExampleControls" role="button"
+                    data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next city_slider_next" href="#carouselExampleControls" role="button"
+                    data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer class="main_footer">
+        <div class="footer_info_parent_block">
+            <div class="footer_info">
+                <span class="footer_logo"></span>
+                <span class="footer_rights_info">© 2018-2023 Ритуальные услуги. Все права защищены.</span>
+                <span class="footer_about_company">Lorem ipsum dolor sit amet consectetur. Eget enim quis fermentum
+                    consequat aenean mauris massa eros in. Purus purus tristique tortor id sit sed ipsum. Vitae risus
+                    sit mauris amet diam massa. Vitae tellus quam tortor facilisis pellentesque mauris pulvinar in. Enim
+                    turpis volutpat ipsum integer. </span>
+            </div>
+            <div class="footer_navigation">
+                <span class="footer_navigation_list_title">Навигация</span>
+                <ul>
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Оплата и доставка</a></li>
+                    <li><a href="#">Вопрос-ответ</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer_catalog">
+                <span class="footer_catalog_list_title">Каталог</span>
+                <ul>
+                    <li><a href="#">Гробы</a></li>
+                    <li><a href="#">Венки</a></li>
+                    <li><a href="#">Кресты</a></li>
+                    <li><a href="#">Текстиль</a></li>
+                    <li><a href="#">Ограды</a></li>
+                    <li><a href="#">Урны</a></li>
+                    <li><a href="#">Прочее</a></li>
+                </ul>
+            </div>
+            <div class="footer_cooperation">
+                <span class="footer_cooperation_title">Сотрудничество</span>
+                <span><a href="">+7 926 136 36 65</a><br>Пн-вс 10:00-19:00</span>
+                <span><a href="">business@funeralexpert.ru</a><br>Для заведений и сотрудников</span>
+                <span><a href="">partner@funeralexpert.ru</a><br>Для партнёров</span>
+                <span>3-я ул. Ямского поля д.2, к.9</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../index/assets/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script>
+        $(function () {
+            $('input[name=dateRange]').daterangepicker({
+                "singleDatePicker": true,
+                "showDropdowns": true,
+                "minYear": 2000,
+                "locale": {
+                    "format": "MM/DD/YYYY",
+                    "separator": " - ",
+                    "applyLabel": "Принять",
+                    "cancelLabel": "Отмена",
+                    "fromLabel": "From",
+                    "toLabel": "To",
+                    "customRangeLabel": "Custom",
+                    "weekLabel": "W",
+                    "daysOfWeek": [
+                        "Вс",
+                        "Пн",
+                        "Вт",
+                        "Ср",
+                        "Чт",
+                        "Пт",
+                        "Сб"
+                    ],
+                    "monthNames": [
+                        "Январь",
+                        "Февраль",
+                        "Март",
+                        "Апрель",
+                        "Май",
+                        "Июнь",
+                        "Июль",
+                        "Август",
+                        "Сентябрь",
+                        "Октябрь",
+                        "Ноябрь",
+                        "Декабрь"
+                    ],
+                    "firstDay": 1
+                },
+                "startDate": "07/27/2023",
+                "endDate": "08/02/2023",
+                "applyButtonClasses": "btn btn-dark"
+            }, function (start, end, label) {
+                console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+            });
+        });
+
+        $(document).on("click", ".burgerbutton", function (e) {
+            e.preventDefault();
+            $(this).toggleClass('active');
+            $('#collapsed_navbar').toggleClass('collapsed_navbar_active');
+            $('#collapsed_navbar_menu').toggleClass('head_navigation_collapsed_active');
+            $('#collapsed_catalog_container').toggleClass('collapsed_catalog_container_active');
+        });
+    </script>
+</body>
+
+</html>
